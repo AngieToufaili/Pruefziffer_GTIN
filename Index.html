@@ -1,0 +1,82 @@
+<html>
+	<head>
+		<title>
+		Prüfziffer GTIN
+		</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<script>
+			"use strict";
+			function rechne() {
+
+			var vAusgabe="";	
+
+			var A1
+            A1= document.getElementById("idZ1").value;
+			var A2
+            A2= document.getElementById("idZ2").value;
+			var A3
+            A3= document.getElementById("idZ3").value;
+            var A4
+            A4= document.getElementById("idZ4").value;
+            var A5
+            A5= document.getElementById("idZ5").value;
+			var A6
+            A6= document.getElementById("idZ6").value;
+			var A7
+            A7= document.getElementById("idZ7").value;
+		
+
+           
+			var vErgebnis1 = A1 * 3
+		    var vErgebnis2 = A2 * 1
+			var vErgebnis3 = A3 * 3 
+		    var vErgebnis4 = A4 * 1 
+            var vErgebnis5 = A5 * 3
+			var vErgebnis6 = A6 * 1
+			var vErgebnis7 = A7 * 3
+		
+
+            var vProduktsumme= vErgebnis1 + vErgebnis2 + vErgebnis3 + vErgebnis4 + vErgebnis5 + vErgebnis6 + vErgebnis7;
+			
+			var vPruefziffer= 10-(vProduktsumme%10)
+
+			if(vPruefziffer==10){
+
+
+				vPruefziffer=0;
+			}
+
+
+			vAusgabe=vAusgabe + "Die Prüfsumme ist: " + vProduktsumme + " und die Prüfziffer ist: " +vPruefziffer;
+
+			document.getElementById("idAusgabeHTML").innerHTML=vAusgabe;
+
+			
+			}
+			
+			
+		</script>
+	
+</head>
+
+	<body>
+		<h1>Prüfziffer GTIN</h1>
+		Europäische Artikelnummer: 
+		<input id="idZ1" type="text" maxlength="1" size="1" value="4">
+		<input id="idZ2" type="text" maxlength="1" size="1" value="2">
+		<input id="idZ3" type="text" maxlength="1" size="1" value="2">
+		<input id="idZ4" type="text" maxlength="1" size="1" value="1">
+		<input id="idZ5" type="text" maxlength="1" size="1" value="4">
+		<input id="idZ6" type="text" maxlength="1" size="1" value="3">
+		<input id="idZ7" type="text" maxlength="1" size="1" value="9">
+		
+		
+		
+		</br> 
+		</br> 
+		<button onClick="rechne();">Berechne GTIN Prüfziffer!</button>
+		</br> 
+		</br> 
+		<div id="idAusgabeHTML"></div>
+	</body>
+</html>
